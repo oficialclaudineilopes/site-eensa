@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Área do Professor - EENSA</title>
+<style>
+  :root {
+    --azul-marinho: #002855;
+    --azul-ativo: #00509e;
+    --azul-claro: #7b8b9e;
+    --branco: #ffffff;
+    --amarelo: #ffd700;
+    --cinza-fundo: #f8f9fa;
+    --texto-escuro: #333333;
+  }
+  
+  body { 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: var(--cinza-fundo); 
+    color: var(--texto-escuro); 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+  }
+  
+  .cabecalho { 
+    background-color: var(--branco); 
+    padding: 20px 40px; 
+    border-bottom: 4px solid var(--azul-marinho); 
+    display: flex; 
+    align-items: center; 
+  }
+  
+  .logo-box { 
+    width: 60px; 
+    height: 60px; 
+    background-color: var(--azul-marinho); 
+    border-radius: 8px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: var(--branco); 
+    font-weight: bold; 
+    font-size: 14px; 
+  }
+  
+  .cabecalho-textos { margin-left: 20px; }
+  .titulo { font-size: 28px; font-weight: bold; color: var(--azul-marinho); margin: 0; }
+  .subtitulo { font-size: 15px; color: var(--azul-ativo); font-weight: bold; margin: 4px 0 0 0; }
+  
+  .hero { background-color: var(--azul-marinho); color: var(--branco); text-align: center; padding: 50px 20px; }
+  .hero h2 { font-size: 26px; font-weight: 500; max-width: 800px; margin: 0 auto; line-height: 1.4; }
+  
+  .conteudo { flex: 1; padding: 60px 20px; display: flex; justify-content: center; align-items: flex-start; }
+  .botoes-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 900px; }
+  
+  .btn-ativo {
+    background-color: var(--azul-ativo); 
+    color: var(--branco); 
+    width: 220px; 
+    height: 80px;
+    border-radius: 10px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center; 
+    text-decoration: none; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .btn-ativo:hover { background-color: var(--azul-marinho); }
+  
+  .btn-voltar { background-color: var(--azul-claro); }
+  .btn-voltar:hover { background-color: #5a6978; }
+
+  .icone-texto { font-weight: bold; font-size: 15px; margin-bottom: 6px; text-align: center; }
+  .aviso-ativo { font-size: 13px; color: var(--amarelo); font-weight: bold; }
+  .aviso-voltar { font-size: 13px; color: #ffffff; font-weight: bold; }
+  
+  .rodape { 
+    background-color: var(--azul-marinho); 
+    color: var(--branco); 
+    text-align: center; 
+    padding: 30px 20px; 
+    font-size: 14px; 
+    margin-top: auto; 
+  }
+  .rodape p { margin: 8px 0; }
+</style>
+</head>
+<body>
+
+<header class="cabecalho">
+  <div class="logo-box">LOGO</div>
+  <div class="cabecalho-textos">
+    <h1 class="titulo">Portal EENSA</h1>
+    <p class="subtitulo">Acesso Restrito: Área do Professor</p>
+  </div>
+</header>
+
+<section class="hero">
+  <h2>Espaço exclusivo para solicitações e serviços da equipe pedagógica.</h2>
+</section>
+
+<section class="conteudo">
+  <div class="botoes-grid">
+    <!-- Formulário de Impressão -->
+    <a href="https://script.google.com/a/macros/escola.pr.gov.br/s/AKfycbx9VPIOQfV0J-OSbPC2b18N2Jaj9krz55jKjt9R95FaE30Qv60t6qBVFXAj6cCNEGOd/exec?" target="_blank" class="btn-ativo">
+      <div class="icone-texto">🖨️ Solicitação de Cópias</div>
+      <div class="aviso-ativo">Acessar Formulário</div>
+    </a>
+    
+    <!-- Voltar ao Início -->
+    <a href="index.html" class="btn-ativo btn-voltar">
+      <div class="icone-texto">⬅️ Voltar ao Início</div>
+      <div class="aviso-voltar">Página Principal</div>
+    </a>
+  </div>
+</section>
+
+<footer class="rodape">
+  <p><strong>Escola Estadual Nossa Senhora Aparecida (EENSA)</strong> - Curitiba/PR</p>
+</footer>
+
+</body>
+</html>
