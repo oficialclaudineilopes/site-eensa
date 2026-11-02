@@ -1,1 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal EENSA</title>
+<style>
+  :root {
+    --azul-marinho: #002855;
+    --azul-claro: #7b8b9e;
+    --branco: #ffffff;
+    --amarelo: #ffd700;
+    --cinza-fundo: #f8f9fa;
+    --texto-escuro: #333333;
+  }
+  
+  body {
+    margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cinza-fundo); color: var(--texto-escuro);
+    display: flex; flex-direction: column; min-height: 100vh;
+  }
 
+  .cabecalho { background-color: var(--branco); padding: 20px 40px; border-bottom: 4px solid var(--azul-marinho); display: flex; align-items: center; }
+  .logo-box { width: 60px; height: 60px; background-color: var(--azul-marinho); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--branco); font-weight: bold; font-size: 14px; }
+  .cabecalho-textos { margin-left: 20px; }
+  .titulo { font-size: 28px; font-weight: bold; color: var(--azul-marinho); margin: 0; }
+  .subtitulo { font-size: 15px; color: #555; margin: 4px 0 0 0; }
+
+  .hero { background-color: var(--azul-marinho); color: var(--branco); text-align: center; padding: 50px 20px; }
+  .hero h2 { font-size: 26px; font-weight: 500; max-width: 800px; margin: 0 auto; line-height: 1.4; }
+
+  .conteudo { flex: 1; padding: 60px 20px; display: flex; justify-content: center; }
+  .botoes-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 900px; }
+  
+  .btn-breve {
+    background-color: var(--azul-claro); color: var(--branco); width: 220px; height: 80px;
+    border-radius: 10px; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); cursor: not-allowed;
+  }
+  
+  .icone-texto { font-weight: bold; font-size: 15px; margin-bottom: 6px; text-align: center; }
+  .aviso { font-size: 13px; color: var(--amarelo); font-weight: bold; }
+
+  .rodape {
+    background-color: var(--azul-marinho); color: var(--branco); text-align: center;
+    padding: 30px 20px; font-size: 14px; margin-top: auto;
+  }
+  
+  .rodape p { margin: 8px 0; }
+  .rodape strong { color: var(--amarelo); }
+  
+  .btn-restrito {
+    display: inline-block; margin-top: 20px; padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.1); color: var(--amarelo);
+    border: 1px solid var(--amarelo); border-radius: 6px; font-size: 15px;
+    font-weight: bold; cursor: pointer; transition: all 0.3s;
+  }
+  .btn-restrito:hover { background-color: var(--amarelo); color: var(--azul-marinho); }
+
+  /* Janela de Senha */
+  .modal-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7); justify-content: center; align-items: center; z-index: 9999;
+  }
+  .modal-box {
+    background: var(--branco); padding: 30px; border-radius: 10px; text-align: center;
+    width: 320px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  }
+  .modal-box h3 { margin-top: 0; color: var(--azul-marinho); }
+  .modal-box input {
+    width: 80%; padding: 10px; margin: 15px 0; border: 1px solid #ccc;
+    border-radius: 5px; font-size: 16px; text-align: center;
+  }
+  .btn-validar {
+    background: var(--azul-marinho); color: var(--branco); padding: 12px 20px; border: none;
+    border-radius: 5px; cursor: pointer; font-weight: bold; width: 88%; font-size: 15px;
+  }
+  .btn-validar:hover { background: #001f44; }
+  .btn-cancelar {
+    background: none; color: #777; border: none; margin-top: 15px;
+    cursor: pointer; text-decoration: underline;
+  }
+  .erro { color: red; font-size: 13px; display: none; margin-bottom: 15px; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<header class="cabecalho">
+  <div class="logo-box">LOGO</div>
+  <div class="cabecalho-textos">
+    <h1 class="titulo">Portal EENSA</h1>
+    <p class="subtitulo">Escola Estadual Nossa Senhora Aparecida</p>
+  </div>
+</header>
+
+<section class="hero">
+  <h2>Seu futuro começa aqui: educação pública de excelência para a vida.</h2>
+</section>
+
+<section class="conteudo">
+  <div class="botoes-grid">
+    <div class="btn-breve"><div class="icone-texto">🏆 Resultado: Aprovados</div><div class="aviso">(Em breve)</div></div>
+    <div class="btn-breve"><div class="icone-texto">📅 Calendário 2027</div><div class="aviso">(Em breve)</div></div>
+    <div class="btn-breve"><div class="icone-texto">⏰ Horário das Aulas</div><div class="aviso">(Em breve)</div></div>
+    <div class="btn-breve"><div class="icone-texto">🍲 Cardápio</div><div class="aviso">(Em breve)</div></div>
+    <div class="btn-breve"><div class="icone-texto">📄 2ª Via de Histórico</div><div class="aviso">(Em breve)</div></div>
+  </div>
+</section>
+
+<footer class="rodape">
+  <p><strong>Escola Estadual Nossa Senhora Aparecida (EENSA)</strong> - Curitiba/PR</p>
+  <p>📞 Secretaria: (41) 3346-6711 | 📱 WhatsApp: (41) 97401-3657</p>
+  <p>🕒 Horário de Atendimento: 08:00 às 11:30 e das 13:00 às 16:30</p>
+  
+  <div class="btn-restrito" onclick="abrirModal()">🔒 Área do Professor (Restrito)</div>
+</footer>
+
+<!-- Janela de Senha -->
+<div id="janelaSenha" class="modal-overlay">
+  <div class="modal-box">
+    <h3>Acesso Restrito</h3>
+    <p style="font-size: 14px; color:#555;">Digite a senha da equipe pedagógica:</p>
+    
+    <input type="password" id="campoSenha" placeholder="Senha" onkeypress="verificarEnter(event)">
+    <div id="mensagemErro" class="erro">Senha incorreta. Tente novamente.</div>
+    
+    <button class="btn-validar" id="botaoConfirmar" onclick="verificarSenha()">Confirmar</button>
+    <br>
+    <button class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
+  </div>
+</div>
+
+<script>
+  function abrirModal() {
+    document.getElementById('janelaSenha').style.display = 'flex';
+    document.getElementById('campoSenha').value = '';
+    document.getElementById('mensagemErro').style.display = 'none';
+    document.getElementById('campoSenha').focus();
+  }
+
+  function fecharModal() {
+    document.getElementById('janelaSenha').style.display = 'none';
+  }
+
+  function verificarSenha() {
+    var senha = document.getElementById('campoSenha').value;
+    
+    if(senha === 'eensa2027') {
+       // Direciona direto para a página de professores na mesma aba
+       window.location.href = 'professores.html';
+    } else {
+       document.getElementById('mensagemErro').style.display = 'block';
+    }
+  }
+
+  // Permite confirmar apertando a tecla Enter
+  function verificarEnter(event) {
+    if (event.key === "Enter") {
+      verificarSenha();
+    }
+  }
+</script>
+
+</body>
+</html>
