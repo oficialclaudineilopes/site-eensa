@@ -7,6 +7,7 @@
 <style>
   :root {
     --azul-marinho: #002855;
+    --azul-ativo: #00509e;
     --azul-claro: #7b8b9e;
     --branco: #ffffff;
     --amarelo: #ffd700;
@@ -38,8 +39,17 @@
     justify-content: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); cursor: not-allowed;
   }
   
+  .btn-ativo {
+    background-color: var(--azul-ativo); color: var(--branco); width: 220px; height: 80px;
+    border-radius: 10px; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer; transition: background-color 0.3s;
+  }
+  .btn-ativo:hover { background-color: var(--azul-marinho); }
+  
   .icone-texto { font-weight: bold; font-size: 15px; margin-bottom: 6px; text-align: center; }
   .aviso { font-size: 13px; color: var(--amarelo); font-weight: bold; }
+  .aviso-ativo { font-size: 13px; color: var(--amarelo); font-weight: bold; }
 
   .rodape {
     background-color: var(--azul-marinho); color: var(--branco); text-align: center;
@@ -99,6 +109,12 @@
 
 <section class="conteudo">
   <div class="botoes-grid">
+    <!-- Novo Botão Adicionado -->
+    <a href="https://script.google.com/macros/s/AKfycbwPJeIfZfQ-3YZfHYAW_A2D9Jw-Bo29Ze-A4eEoXntaZBNUywqgZm9Gh8Ab59GdhVORGQ/exec" target="_blank" class="btn-ativo">
+      <div class="icone-texto">📝 Cadastro e Rematrícula</div>
+      <div class="aviso-ativo">Acessar Formulário</div>
+    </a>
+    
     <div class="btn-breve"><div class="icone-texto">🏆 Resultado: Aprovados</div><div class="aviso">(Em breve)</div></div>
     <div class="btn-breve"><div class="icone-texto">📅 Calendário 2027</div><div class="aviso">(Em breve)</div></div>
     <div class="btn-breve"><div class="icone-texto">⏰ Horário das Aulas</div><div class="aviso">(Em breve)</div></div>
