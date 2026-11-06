@@ -59,8 +59,12 @@
   .rodape p { margin: 8px 0; }
   .rodape strong { color: var(--amarelo); }
   
+  .rodape-botoes {
+    display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 20px;
+  }
+
   .btn-restrito {
-    display: inline-block; margin-top: 20px; padding: 10px 20px;
+    display: inline-block; padding: 10px 20px;
     background-color: rgba(255, 255, 255, 0.1); color: var(--amarelo);
     border: 1px solid var(--amarelo); border-radius: 6px; font-size: 15px;
     font-weight: bold; cursor: pointer; transition: all 0.3s;
@@ -109,7 +113,6 @@
 
 <section class="conteudo">
   <div class="botoes-grid">
-    <!-- Novo Botão Adicionado -->
     <a href="https://script.google.com/macros/s/AKfycbwPJeIfZfQ-3YZfHYAW_A2D9Jw-Bo29Ze-A4eEoXntaZBNUywqgZm9Gh8Ab59GdhVORGQ/exec" target="_blank" class="btn-ativo">
       <div class="icone-texto">📝 Cadastro e Rematrícula</div>
       <div class="aviso-ativo">Acessar Formulário</div>
@@ -128,14 +131,17 @@
   <p>📞 Secretaria: (41) 3346-6711 | 📱 WhatsApp: (41) 97401-3657</p>
   <p>🕒 Horário de Atendimento: 08:00 às 11:30 e das 13:00 às 16:30</p>
   
-  <div class="btn-restrito" onclick="abrirModal()">🔒 Área do Professor (Restrito)</div>
+  <div class="rodape-botoes">
+    <div class="btn-restrito" onclick="abrirModal('professores')">🔒 Área do Professor</div>
+    <div class="btn-restrito" onclick="abrirModal('secretaria')">🔒 Área da Secretaria</div>
+  </div>
 </footer>
 
 <!-- Janela de Senha -->
 <div id="janelaSenha" class="modal-overlay">
   <div class="modal-box">
-    <h3>Acesso Restrito</h3>
-    <p style="font-size: 14px; color:#555;">Digite a senha da equipe pedagógica:</p>
+    <h3 id="tituloModal">Acesso Restrito</h3>
+    <p style="font-size: 14px; color:#555;">Digite a senha de acesso corporativo:</p>
     
     <input type="password" id="campoSenha" placeholder="Senha" onkeypress="verificarEnter(event)">
     <div id="mensagemErro" class="erro">Senha incorreta. Tente novamente.</div>
@@ -147,10 +153,21 @@
 </div>
 
 <script>
-  function abrirModal() {
+  let destinoAtual = '';
+
+  function abrirModal(destino) {
+    destinoAtual = destino;
     document.getElementById('janelaSenha').style.display = 'flex';
     document.getElementById('campoSenha').value = '';
     document.getElementById('mensagemErro').style.display = 'none';
+    
+    // Altera o título da janela dependendo do botão clicado
+    if(destino === 'secretaria') {
+      document.getElementById('tituloModal').innerText = 'Acesso: Secretaria';
+    } else {
+      document.getElementById('tituloModal').innerText = 'Acesso: Professor';
+    }
+    
     document.getElementById('campoSenha').focus();
   }
 
@@ -161,15 +178,18 @@
   function verificarSenha() {
     var senha = document.getElementById('campoSenha').value;
     
-    if(senha === 'eensa2027') {
-       // Direciona direto para a página de professores na mesma aba
+    // Validação inteligente por departamento
+    if(destinoAtual === 'professores' && senha === 'eensa2027') {
        window.location.href = 'professores.html';
-    } else {
+    } 
+    else if(destinoAtual === 'secretaria' && senha === 'admin2027') {
+       window.location.href = 'secretaria.html';
+    } 
+    else {
        document.getElementById('mensagemErro').style.display = 'block';
     }
   }
 
-  // Permite confirmar apertando a tecla Enter
   function verificarEnter(event) {
     if (event.key === "Enter") {
       verificarSenha();
