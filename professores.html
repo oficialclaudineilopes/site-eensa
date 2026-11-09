@@ -16,78 +16,78 @@
   }
   
   body { 
-    margin: 0; 
-    padding: 0; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    background-color: var(--cinza-fundo); 
-    color: var(--texto-escuro); 
-    display: flex; 
-    flex-direction: column; 
-    min-height: 100vh; 
+    margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: var(--cinza-fundo); color: var(--texto-escuro); 
+    display: flex; flex-direction: column; min-height: 100vh; 
   }
   
   .cabecalho { 
-    background-color: var(--branco); 
-    padding: 20px 40px; 
-    border-bottom: 4px solid var(--azul-marinho); 
-    display: flex; 
-    align-items: center; 
+    background-color: var(--branco); padding: 20px 40px; 
+    border-bottom: 4px solid var(--azul-marinho); display: flex; align-items: center; 
   }
   
   .logo-box { 
-    width: 60px; 
-    height: 60px; 
-    background-color: var(--azul-marinho); 
-    border-radius: 8px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    color: var(--branco); 
-    font-weight: bold; 
-    font-size: 14px; 
+    width: 60px; height: 60px; background-color: var(--azul-marinho); 
+    border-radius: 8px; display: flex; align-items: center; justify-content: center; 
+    color: var(--branco); font-weight: bold; font-size: 14px; 
   }
   
   .cabecalho-textos { margin-left: 20px; }
   .titulo { font-size: 28px; font-weight: bold; color: var(--azul-marinho); margin: 0; }
   .subtitulo { font-size: 15px; color: var(--azul-ativo); font-weight: bold; margin: 4px 0 0 0; }
   
-  .hero { background-color: var(--azul-marinho); color: var(--branco); text-align: center; padding: 50px 20px; }
+  .hero { background-color: var(--azul-marinho); color: var(--branco); text-align: center; padding: 40px 20px; }
   .hero h2 { font-size: 26px; font-weight: 500; max-width: 800px; margin: 0 auto; line-height: 1.4; }
   
-  .conteudo { flex: 1; padding: 60px 20px; display: flex; justify-content: center; align-items: flex-start; }
+  .conteudo { flex: 1; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; }
+  
+  /* Caixa de Aviso de Desenvolvimento */
+  .aviso-desenvolvimento {
+    background-color: #fff3cd;
+    border-left: 6px solid #ffc107;
+    color: #856404;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 850px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    text-align: center;
+    line-height: 1.6;
+  }
+  .aviso-desenvolvimento strong {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #533f03;
+  }
+
   .botoes-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 900px; }
   
   .btn-ativo {
-    background-color: var(--azul-ativo); 
-    color: var(--branco); 
-    width: 220px; 
-    height: 80px;
-    border-radius: 10px; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center;
-    justify-content: center; 
-    text-decoration: none; 
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
-    cursor: pointer;
-    transition: background-color 0.3s;
+    background-color: var(--azul-ativo); color: var(--branco); width: 220px; height: 80px;
+    border-radius: 10px; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    cursor: pointer; transition: background-color 0.3s;
   }
   .btn-ativo:hover { background-color: var(--azul-marinho); }
   
-  .btn-voltar { background-color: var(--azul-claro); }
-  .btn-voltar:hover { background-color: #5a6978; }
+  .btn-breve {
+    background-color: var(--azul-claro); color: var(--branco); width: 220px; height: 80px;
+    border-radius: 10px; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); cursor: not-allowed;
+  }
+  
+  .btn-voltar { background-color: #5a6978; }
+  .btn-voltar:hover { background-color: #3e4a56; }
 
   .icone-texto { font-weight: bold; font-size: 15px; margin-bottom: 6px; text-align: center; }
+  .aviso { font-size: 13px; color: var(--amarelo); font-weight: bold; }
   .aviso-ativo { font-size: 13px; color: var(--amarelo); font-weight: bold; }
   .aviso-voltar { font-size: 13px; color: #ffffff; font-weight: bold; }
   
   .rodape { 
-    background-color: var(--azul-marinho); 
-    color: var(--branco); 
-    text-align: center; 
-    padding: 30px 20px; 
-    font-size: 14px; 
-    margin-top: auto; 
+    background-color: var(--azul-marinho); color: var(--branco); 
+    text-align: center; padding: 30px 20px; font-size: 14px; margin-top: auto; 
   }
   .rodape p { margin: 8px 0; }
 </style>
@@ -97,22 +97,35 @@
 <header class="cabecalho">
   <div class="logo-box">LOGO</div>
   <div class="cabecalho-textos">
-    <h1 class="titulo">Portal EENSA</h1>
+    <h1 class="titulo">Novo Portal EENSA</h1>
     <p class="subtitulo">Acesso Restrito: Área do Professor</p>
   </div>
 </header>
 
 <section class="hero">
-  <h2>Espaço exclusivo para solicitações e serviços da equipe pedagógica.</h2>
+  <h2>Bem-vindo(a) ao seu espaço digital de gestão pedagógica.</h2>
 </section>
 
 <section class="conteudo">
+
+  <!-- Aviso de Desenvolvimento -->
+  <div class="aviso-desenvolvimento">
+    <strong>⚠️ Ambiente em Aperfeiçoamento Contínuo</strong>
+    Olá, Professor(a)! Estamos em fase de desenvolvimento para inserir novas ferramentas, informações e links pertinentes ao seu dia a dia. Nosso objetivo é centralizar e facilitar o seu acesso a tudo o que você precisa, diretamente aqui no Novo Portal EENSA. Em caso de dúvidas ou sugestões, entre em contato com a equipe.
+  </div>
+
   <div class="botoes-grid">
-    <!-- Formulário de Impressão -->
-    <a href="https://script.google.com/a/macros/escola.pr.gov.br/s/AKfycbx9VPIOQfV0J-OSbPC2b18N2Jaj9krz55jKjt9R95FaE30Qv60t6qBVFXAj6cCNEGOd/exec?" target="_blank" class="btn-ativo">
+    
+    <!-- Link para o Sistema de Impressões Atualizado -->
+    <a href="https://script.google.com/a/macros/escola.pr.gov.br/s/AKfycbx9VPIOQfV0J-OSbPC2b18N2Jaj9krz55jKjt9R95FaE30Qv60t6qBVFXAj6cCNEGOd/exec" target="_blank" rel="noopener noreferrer" class="btn-ativo">
       <div class="icone-texto">🖨️ Solicitação de Cópias</div>
-      <div class="aviso-ativo">Acessar Formulário</div>
+      <div class="aviso-ativo">(Acessar Formulário)</div>
     </a>
+    
+    <!-- Painéis Futuros (Apenas ilustrativos) -->
+    <div class="btn-breve"><div class="icone-texto">📚 Diário de Classe</div><div class="aviso">(Em breve)</div></div>
+    <div class="btn-breve"><div class="icone-texto">📅 Calendário Escolar</div><div class="aviso">(Em breve)</div></div>
+    <div class="btn-breve"><div class="icone-texto">📋 Planejamento</div><div class="aviso">(Em breve)</div></div>
     
     <!-- Voltar ao Início -->
     <a href="index.html" class="btn-ativo btn-voltar">
