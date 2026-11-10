@@ -1,251 +1,615 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Novo Portal EENSA</title>
-<style>
-  :root {
-    --cor-fundo-app: #F3F4F6;
-    --cor-fundo-container: #FFFFFF;
-    --cor-texto-principal: #1F2937;
-    --cor-texto-secundario: #4B5563;
-    --cor-primaria-azul: #0062CC;
-    --cor-azul-hover: #0050A8;
-    --cor-secundaria-mostarda: #997A00;
-    --cor-mostarda-hover: #806600;
-    --cor-borda: #E5E7EB;
-    --cor-destaque-laranja: #F97316;
-  }
-  
-  body {
-    margin: 0; padding: 0; 
-    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background-color: var(--cor-fundo-app); 
-    color: var(--cor-texto-principal);
-    display: flex; flex-direction: column; min-height: 100vh;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escola Estadual Nossa Senhora Aparecida</title>
 
-  /* Cabeçalho */
-  .cabecalho { 
-    background-color: var(--cor-fundo-container); 
-    padding: 15px 40px; 
-    border-bottom: 1px solid var(--cor-borda); 
-    display: flex; align-items: center; 
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  }
-  .logo-box { 
-    width: 50px; height: 50px; 
-    background-color: var(--cor-primaria-azul); 
-    border-radius: 6px; display: flex; align-items: center; 
-    justify-content: center; color: #fff; font-weight: 600; font-size: 13px; 
-  }
-  .cabecalho-textos { margin-left: 20px; }
-  .titulo { 
-    font-size: 22px; font-weight: 600; 
-    color: var(--cor-texto-principal); margin: 0; 
-    border-left: 4px solid var(--cor-destaque-laranja);
-    padding-left: 10px;
-  }
-  .subtitulo { font-size: 14px; color: var(--cor-texto-secundario); margin: 4px 0 0 14px; }
+  <style>
+    :root {
+      --verde: #183d38;
+      --verde-claro: #e8eee6;
+      --creme: #f5f3ec;
+      --terracota: #b65737;
+      --salmao: #e6a781;
+      --texto: #53635e;
+      --branco: #ffffff;
+    }
 
-  /* Seção Hero (Apresentação) */
-  .hero { 
-    background-color: var(--cor-fundo-container); 
-    margin: 30px auto 10px auto;
-    padding: 25px 40px;
-    max-width: 900px; width: 90%;
-    border-radius: 6px;
-    border: 1px solid var(--cor-borda);
-    border-top: 4px solid var(--cor-primaria-azul);
-    text-align: center;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
-  }
-  .hero h2 { font-size: 20px; font-weight: 600; margin: 0; color: var(--cor-texto-principal); }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  /* Área de Botões (Grid) */
-  .conteudo { flex: 1; padding: 30px 20px; display: flex; justify-content: center; }
-  .botoes-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 950px; }
-  
-  .btn-ativo {
-    background-color: var(--cor-primaria-azul); color: #fff; 
-    width: 240px; height: 90px;
-    border-radius: 6px; display: flex; flex-direction: column; align-items: center;
-    justify-content: center; text-decoration: none; 
-    box-shadow: 0 2px 4px rgba(0,98,204,0.2);
-    cursor: pointer; transition: background-color 0.2s, transform 0.1s;
-  }
-  .btn-ativo:hover { background-color: var(--cor-azul-hover); transform: translateY(-2px); }
-  
-  .btn-breve {
-    background-color: var(--cor-fundo-container); 
-    color: var(--cor-texto-secundario); 
-    width: 240px; height: 90px;
-    border-radius: 6px; display: flex; flex-direction: column; align-items: center;
-    justify-content: center; border: 1px solid var(--cor-borda);
-    cursor: not-allowed; opacity: 0.8;
-  }
-  
-  .icone-texto { font-weight: 600; font-size: 15px; margin-bottom: 6px; text-align: center; }
-  .aviso { font-size: 13px; color: var(--cor-texto-secundario); font-weight: 500; }
-  .aviso-ativo { font-size: 13px; color: #E5E7EB; font-weight: 500; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  /* Rodapé */
-  .rodape {
-    background-color: var(--cor-fundo-container); 
-    color: var(--cor-texto-secundario); text-align: center;
-    padding: 25px 20px; font-size: 13px; margin-top: auto;
-    border-top: 1px solid var(--cor-borda);
-  }
-  .rodape p { margin: 6px 0; }
-  .rodape strong { color: var(--cor-texto-principal); }
-  
-  .rodape-botoes {
-    display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 20px;
-  }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--verde);
+      background: var(--creme);
+      line-height: 1.6;
+    }
 
-  .btn-restrito {
-    display: inline-block; padding: 10px 20px;
-    background-color: var(--cor-secundaria-mostarda); 
-    color: #fff;
-    border: none; border-radius: 4px; font-size: 14px;
-    font-weight: 600; cursor: pointer; transition: background-color 0.2s;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  }
-  .btn-restrito:hover { background-color: var(--cor-mostarda-hover); }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-  /* Janela de Senha (Modal) */
-  .modal-overlay {
-    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(31,41,55,0.7); justify-content: center; align-items: center; z-index: 9999;
-  }
-  .modal-box {
-    background: var(--cor-fundo-container); padding: 30px; border-radius: 6px; text-align: center;
-    width: 320px; box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    border-top: 4px solid var(--cor-primaria-azul);
-  }
-  .modal-box h3 { margin-top: 0; color: var(--cor-texto-principal); font-size: 18px; }
-  .modal-box input {
-    width: 85%; padding: 12px; margin: 15px 0; 
-    border: 1px solid var(--cor-borda); color: var(--cor-texto-principal);
-    border-radius: 4px; font-size: 15px; text-align: center;
-    background-color: #FAFAFA;
-  }
-  .modal-box input:focus {
-    outline: none; border-color: var(--cor-primaria-azul); background-color: #fff;
-  }
-  .btn-validar {
-    background: var(--cor-primaria-azul); color: #fff; padding: 12px 20px; border: none;
-    border-radius: 4px; cursor: pointer; font-weight: 600; width: 93%; font-size: 15px;
-    transition: background-color 0.2s;
-  }
-  .btn-validar:hover { background: var(--cor-azul-hover); }
-  .btn-cancelar {
-    background: none; color: var(--cor-texto-secundario); border: none; margin-top: 15px;
-    cursor: pointer; text-decoration: underline; font-size: 14px;
-  }
-  .erro { color: #DC2626; font-size: 13px; display: none; margin-bottom: 15px; font-weight: 600; }
-</style>
+    .container {
+      width: min(1120px, 90%);
+      margin: 0 auto;
+    }
+
+    header {
+      background: var(--creme);
+      padding: 22px 0;
+      border-bottom: 1px solid #e1e1d8;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      font-size: 1rem;
+      font-weight: 700;
+      max-width: 270px;
+    }
+
+    nav {
+      display: flex;
+      gap: 26px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: var(--terracota);
+    }
+
+    .hero {
+      padding: 90px 0;
+      background: var(--creme);
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .eyebrow {
+      color: var(--terracota);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1.05;
+      margin-bottom: 25px;
+    }
+
+    .hero p,
+    .about p,
+    .learning p,
+    .contact p {
+      color: var(--texto);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-bottom: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 24px;
+      color: var(--branco);
+      background: var(--verde);
+      border-radius: 4px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      text-align: center;
+    }
+
+    .button:hover {
+      background: var(--terracota);
+      transform: translateY(-2px);
+    }
+
+    .hero-image {
+      width: 100%;
+      min-height: 430px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .about {
+      background: var(--branco);
+    }
+
+    .about-content,
+    .learning-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 50px;
+    }
+
+    .card {
+      background: var(--branco);
+      padding: 28px;
+      border-radius: 4px;
+      border: 1px solid #e1e1d8;
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      color: var(--texto);
+    }
+
+    /* Estilos do Portal de Serviços (Mesclado) */
+    .portal-servicos {
+      background: var(--creme);
+      padding: 60px 0;
+    }
+    
+    .botoes-grid { 
+      display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-start; margin-top: 30px;
+    }
+    
+    .btn-ativo {
+      background-color: var(--verde); color: var(--branco); width: 220px; height: 80px;
+      border-radius: 4px; display: flex; flex-direction: column; align-items: center;
+      justify-content: center; text-decoration: none; font-weight: 700;
+      transition: 0.2s ease;
+    }
+    .btn-ativo:hover { background-color: var(--terracota); transform: translateY(-2px); }
+    
+    .btn-breve {
+      background-color: var(--verde-claro); color: var(--texto); width: 220px; height: 80px;
+      border-radius: 4px; display: flex; flex-direction: column; align-items: center;
+      justify-content: center; cursor: not-allowed; border: 1px solid #d3e0d8;
+    }
+    
+    .icone-texto { font-size: 0.95rem; margin-bottom: 4px; text-align: center; }
+    .aviso { font-size: 0.8rem; font-weight: 700; color: var(--terracota); }
+
+    .learning {
+      background: var(--verde-claro);
+    }
+
+    .learning-image {
+      width: 100%;
+      min-height: 330px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .school-life {
+      background: var(--verde);
+      color: var(--branco);
+    }
+
+    .school-life .eyebrow {
+      color: #efb69e;
+    }
+
+    .school-life p {
+      color: #d3e0d8;
+      max-width: 650px;
+    }
+
+    .life-link {
+      display: inline-block;
+      color: var(--branco);
+      border-bottom: 2px solid var(--salmao);
+      padding-bottom: 5px;
+      font-weight: 700;
+    }
+
+    .contact {
+      background: var(--salmao);
+    }
+
+    .contact p {
+      color: #3e3c35;
+    }
+    
+    .contact-info-box {
+      background: var(--branco);
+      padding: 20px;
+      border-radius: 4px;
+      margin-top: 20px;
+      max-width: 600px;
+      color: var(--verde);
+      font-weight: 600;
+    }
+
+    footer {
+      background: var(--verde);
+      color: var(--branco);
+      padding: 32px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-caption {
+      color: #d3e0d8;
+    }
+    
+    .rodape-botoes {
+      display: flex; gap: 15px;
+    }
+
+    .btn-restrito {
+      padding: 8px 16px; background-color: transparent; color: var(--salmao);
+      border: 1px solid var(--salmao); border-radius: 4px; font-size: 0.9rem;
+      font-weight: 700; cursor: pointer; transition: 0.2s;
+    }
+    .btn-restrito:hover { background-color: var(--salmao); color: var(--verde); }
+
+    /* Janela de Senha (Modal) */
+    .modal-overlay {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(24,61,56,0.8); justify-content: center; align-items: center; z-index: 9999;
+    }
+    .modal-box {
+      background: var(--creme); padding: 30px; border-radius: 4px; text-align: center;
+      width: 320px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .modal-box h3 { margin-top: 0; color: var(--verde); margin-bottom: 10px; }
+    .modal-box input {
+      width: 100%; padding: 12px; margin: 15px 0; border: 1px solid #ccc;
+      border-radius: 4px; font-size: 1rem; text-align: center;
+    }
+    .btn-validar {
+      background: var(--verde); color: var(--branco); padding: 12px 20px; border: none;
+      border-radius: 4px; cursor: pointer; font-weight: 700; width: 100%; font-size: 1rem;
+    }
+    .btn-validar:hover { background: var(--terracota); }
+    .btn-cancelar {
+      background: none; color: var(--texto); border: none; margin-top: 15px;
+      cursor: pointer; text-decoration: underline; font-weight: 600;
+    }
+    .erro { color: #d32f2f; font-size: 0.85rem; display: none; margin-bottom: 15px; font-weight: 700; }
+
+    @media (max-width: 800px) {
+      .header-content,
+      .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .hero-content,
+      .about-content,
+      .learning-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        min-height: 280px;
+      }
+      
+      .botoes-grid {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header class="cabecalho">
-  <div class="logo-box">LOGO</div>
-  <div class="cabecalho-textos">
-    <h1 class="titulo">Portal EENSA</h1>
-    <p class="subtitulo">Escola Estadual Nossa Senhora Aparecida</p>
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        Escola Estadual Nossa Senhora Aparecida
+      </div>
+
+      <nav>
+        <a href="#portal">Portal</a>
+        <a href="#escola">Nossa escola</a>
+        <a href="#anos-finais">Anos finais</a>
+        <a href="#vida-escolar">Vida escolar</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero-content">
+        <div>
+          <div class="eyebrow">
+            ENSINO FUNDAMENTAL · ANOS FINAIS
+          </div>
+
+          <h1>
+            Um lugar para aprender, crescer e descobrir caminhos.
+          </h1>
+
+          <p>
+            Na Escola Estadual Nossa Senhora Aparecida, cada etapa da
+            aprendizagem é uma oportunidade para desenvolver conhecimentos,
+            construir vínculos e olhar para o futuro.
+          </p>
+
+          <a class="button" href="https://script.google.com/macros/s/AKfycbwPJeIfZfQ-3YZfHYAW_A2D9Jw-Bo29Ze-A4eEoXntaZBNUywqgZm9Gh8Ab59GdhVORGQ/exec" target="_blank">
+            Acessar Cadastro e Rematrícula
+          </a>
+        </div>
+
+        <img
+          class="hero-image"
+          src="https://images.pexels.com/photos/8471799/pexels-photo-8471799.jpeg?auto=compress&cs=tinysrgb&w=1280"
+          alt="Estudantes participando de uma atividade de aprendizagem em sala de aula"
+        >
+      </div>
+    </section>
+
+    <!-- NOVA SEÇÃO: PORTAL DE SERVIÇOS -->
+    <section class="portal-servicos" id="portal">
+      <div class="container">
+        <div class="eyebrow">SERVIÇOS ONLINE</div>
+        <h2>Portal do Aluno e Responsável</h2>
+        
+        <div class="botoes-grid">
+          <a href="https://script.google.com/macros/s/AKfycbwPJeIfZfQ-3YZfHYAW_A2D9Jw-Bo29Ze-A4eEoXntaZBNUywqgZm9Gh8Ab59GdhVORGQ/exec" target="_blank" class="btn-ativo">
+            <div class="icone-texto">📝 Cadastro e Rematrícula</div>
+            <div class="aviso" style="color:var(--creme);">Acessar Formulário</div>
+          </a>
+          
+          <div class="btn-breve"><div class="icone-texto">🏆 Resultado: Aprovados</div><div class="aviso">(Em breve)</div></div>
+          <div class="btn-breve"><div class="icone-texto">📅 Calendário 2027</div><div class="aviso">(Em breve)</div></div>
+          <div class="btn-breve"><div class="icone-texto">⏰ Horário das Aulas</div><div class="aviso">(Em breve)</div></div>
+          <div class="btn-breve"><div class="icone-texto">🍲 Cardápio</div><div class="aviso">(Em breve)</div></div>
+          <div class="btn-breve"><div class="icone-texto">📄 2ª Via de Histórico</div><div class="aviso">(Em breve)</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="escola">
+      <div class="container about-content">
+        <div>
+          <div class="eyebrow">NOSSA ESCOLA</div>
+
+          <h2>
+            Uma escola feita de encontros e descobertas.
+          </h2>
+        </div>
+
+        <p>
+          Acreditamos na educação como um caminho construído em conjunto.
+          Escola, estudantes e famílias têm papéis importantes na formação de
+          jovens curiosos, responsáveis e preparados para novos desafios.
+        </p>
+      </div>
+
+      <div class="container cards">
+        <article class="card">
+          <h3>Aprender com sentido</h3>
+          <p>
+            Conhecimentos e experiências que incentivam a curiosidade e
+            ampliam a maneira de compreender o mundo.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Conviver e colaborar</h3>
+          <p>
+            Respeito, escuta e cooperação fazem parte de uma comunidade
+            escolar em que todos podem participar.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Construir autonomia</h3>
+          <p>
+            Cada estudante é convidado a fazer escolhas, assumir
+            responsabilidades e descobrir seus próprios caminhos.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="learning" id="anos-finais">
+      <div class="container learning-content">
+        <div>
+          <div class="eyebrow">ENSINO FUNDAMENTAL · ANOS FINAIS</div>
+
+          <h2>
+            Uma fase de novas perguntas e possibilidades.
+          </h2>
+
+          <p>
+            Os Anos Finais do Ensino Fundamental são marcados por novas
+            descobertas, maior autonomia e preparação para os próximos passos
+            da vida escolar.
+          </p>
+        </div>
+
+        <img
+          class="learning-image"
+          src="https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=1280"
+          alt="Estudantes aprendendo em uma sala de aula"
+        >
+      </div>
+    </section>
+
+    <section class="school-life" id="vida-escolar">
+      <div class="container">
+        <div class="eyebrow">VIDA ESCOLAR</div>
+
+        <h2>
+          A escola também acontece em cada conversa.
+        </h2>
+
+        <p>
+          Acompanhar a trajetória escolar é uma tarefa compartilhada. Para
+          informações sobre rotina, atividades, documentos e orientações,
+          procure a equipe da escola pelos canais oficiais da unidade.
+        </p>
+
+        <a class="life-link" href="#contato">
+          Como buscar informações
+        </a>
+      </div>
+    </section>
+
+    <section class="contact" id="contato">
+      <div class="container">
+        <div class="eyebrow">FALE COM A ESCOLA</div>
+
+        <h2>
+          Estamos juntos nessa jornada.
+        </h2>
+
+        <p>
+          Tem dúvidas sobre o Ensino Fundamental – Anos Finais? Entre em
+          contato com a secretaria ou com a equipe escolar pelos canais
+          oficiais da escola para receber informações atualizadas.
+        </p>
+        
+        <div class="contact-info-box">
+          📍 Curitiba/PR <br><br>
+          📞 Secretaria: (41) 3346-6711 <br>
+          📱 WhatsApp: (41) 97401-3657 <br><br>
+          🕒 Horário de Atendimento: 08:00 às 11:30 e das 13:00 às 16:30
+        </div>
+        <br>
+
+        <a class="button" href="https://wa.me/5541974013657" target="_blank">
+          Chamar no WhatsApp
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <strong>Escola Estadual Nossa Senhora Aparecida</strong><br>
+        <span class="footer-caption">Ensino Fundamental – Anos Finais</span>
+      </div>
+      
+      <div class="rodape-botoes">
+        <button class="btn-restrito" onclick="abrirModal('professores')">🔒 Área do Professor</button>
+        <button class="btn-restrito" onclick="abrirModal('secretaria')">🔒 Área da Secretaria</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Janela de Senha (Modal) -->
+  <div id="janelaSenha" class="modal-overlay">
+    <div class="modal-box">
+      <h3 id="tituloModal">Acesso Restrito</h3>
+      <p style="font-size: 0.9rem; color: var(--texto);">Digite a senha de acesso corporativo:</p>
+      
+      <input type="password" id="campoSenha" placeholder="Senha" onkeypress="verificarEnter(event)">
+      <div id="mensagemErro" class="erro">Senha incorreta. Tente novamente.</div>
+      
+      <button class="btn-validar" id="botaoConfirmar" onclick="verificarSenha()">Confirmar</button>
+      <button class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
+    </div>
   </div>
-</header>
 
-<section class="hero">
-  <h2>Seu futuro começa aqui: educação pública de excelência para a vida.</h2>
-</section>
+  <script>
+    let destinoAtual = '';
 
-<section class="conteudo">
-  <div class="botoes-grid">
-    <a href="https://script.google.com/macros/s/AKfycbwPJeIfZfQ-3YZfHYAW_A2D9Jw-Bo29Ze-A4eEoXntaZBNUywqgZm9Gh8Ab59GdhVORGQ/exec" target="_blank" class="btn-ativo">
-      <div class="icone-texto">📝 Cadastro e Rematrícula</div>
-      <div class="aviso-ativo">Acessar Formulário</div>
-    </a>
-    
-    <div class="btn-breve"><div class="icone-texto">🏆 Resultado: Aprovados</div><div class="aviso">(Em breve)</div></div>
-    <div class="btn-breve"><div class="icone-texto">📅 Calendário 2027</div><div class="aviso">(Em breve)</div></div>
-    <div class="btn-breve"><div class="icone-texto">⏰ Horário das Aulas</div><div class="aviso">(Em breve)</div></div>
-    <div class="btn-breve"><div class="icone-texto">🍲 Cardápio</div><div class="aviso">(Em breve)</div></div>
-    <div class="btn-breve"><div class="icone-texto">📄 2ª Via de Histórico</div><div class="aviso">(Em breve)</div></div>
-  </div>
-</section>
-
-<footer class="rodape">
-  <p><strong>Escola Estadual Nossa Senhora Aparecida (EENSA)</strong> - Curitiba/PR</p>
-  <p>📞 Secretaria: (41) 3346-6711 | 📱 WhatsApp: (41) 97401-3657</p>
-  <p>🕒 Horário de Atendimento: 08:00 às 11:30 e das 13:00 às 16:30</p>
-  
-  <div class="rodape-botoes">
-    <div class="btn-restrito" onclick="abrirModal('professores')">🔒 Área do Professor</div>
-    <div class="btn-restrito" onclick="abrirModal('secretaria')">🔒 Área da Secretaria</div>
-  </div>
-</footer>
-
-<!-- Janela de Senha -->
-<div id="janelaSenha" class="modal-overlay">
-  <div class="modal-box">
-    <h3 id="tituloModal">Acesso Restrito</h3>
-    <p style="font-size: 14px; color: var(--cor-texto-secundario);">Digite a senha de acesso corporativo:</p>
-    
-    <input type="password" id="campoSenha" placeholder="Senha" onkeypress="verificarEnter(event)">
-    <div id="mensagemErro" class="erro">Senha incorreta. Tente novamente.</div>
-    
-    <button class="btn-validar" id="botaoConfirmar" onclick="verificarSenha()">Confirmar</button>
-    <br>
-    <button class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
-  </div>
-</div>
-
-<script>
-  let destinoAtual = '';
-
-  function abrirModal(destino) {
-    destinoAtual = destino;
-    document.getElementById('janelaSenha').style.display = 'flex';
-    document.getElementById('campoSenha').value = '';
-    document.getElementById('mensagemErro').style.display = 'none';
-    
-    // Altera o título da janela dependendo do botão clicado
-    if(destino === 'secretaria') {
-      document.getElementById('tituloModal').innerText = 'Acesso: Secretaria';
-    } else {
-      document.getElementById('tituloModal').innerText = 'Acesso: Professor';
+    function abrirModal(destino) {
+      destinoAtual = destino;
+      document.getElementById('janelaSenha').style.display = 'flex';
+      document.getElementById('campoSenha').value = '';
+      document.getElementById('mensagemErro').style.display = 'none';
+      
+      if(destino === 'secretaria') {
+        document.getElementById('tituloModal').innerText = 'Acesso: Secretaria';
+      } else {
+        document.getElementById('tituloModal').innerText = 'Acesso: Professor';
+      }
+      
+      document.getElementById('campoSenha').focus();
     }
-    
-    document.getElementById('campoSenha').focus();
-  }
 
-  function fecharModal() {
-    document.getElementById('janelaSenha').style.display = 'none';
-  }
-
-  function verificarSenha() {
-    var senha = document.getElementById('campoSenha').value;
-    
-    // Validação inteligente por departamento
-    if(destinoAtual === 'professores' && senha === 'eensa2027') {
-       window.location.href = 'professores.html';
-    } 
-    else if(destinoAtual === 'secretaria' && senha === 'admin2027') {
-       window.location.href = 'secretaria.html';
-    } 
-    else {
-       document.getElementById('mensagemErro').style.display = 'block';
+    function fecharModal() {
+      document.getElementById('janelaSenha').style.display = 'none';
     }
-  }
 
-  function verificarEnter(event) {
-    if (event.key === "Enter") {
-      verificarSenha();
+    function verificarSenha() {
+      var senha = document.getElementById('campoSenha').value;
+      
+      if(destinoAtual === 'professores' && senha === 'eensa2027') {
+         window.location.href = 'professores.html';
+      } 
+      else if(destinoAtual === 'secretaria' && senha === 'admin2027') {
+         window.location.href = 'secretaria.html';
+      } 
+      else {
+         document.getElementById('mensagemErro').style.display = 'block';
+      }
     }
-  }
-</script>
+
+    function verificarEnter(event) {
+      if (event.key === "Enter") {
+        verificarSenha();
+      }
+    }
+  </script>
 
 </body>
 </html>
