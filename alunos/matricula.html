@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro e Rematrícula - EENSA</title>
+
+  <style>
+    :root {
+      --verde: #183d38;
+      --verde-claro: #e8eee6;
+      --creme: #f5f3ec;
+      --terracota: #b65737;
+      --salmao: #e6a781;
+      --texto: #53635e;
+      --branco: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--verde);
+      background: var(--creme);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1120px, 95%);
+      margin: 0 auto;
+    }
+
+    /* Cabeçalho */
+    header {
+      background: var(--branco);
+      padding: 15px 0;
+      border-bottom: 1px solid #e1e1d8;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-area h1 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--verde);
+      line-height: 1.2;
+    }
+
+    .logo-area span {
+      font-size: 0.85rem;
+      color: var(--texto);
+      font-weight: 400;
+    }
+
+    .btn-voltar {
+      background: var(--verde-claro);
+      color: var(--verde);
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: 1px solid #d3e0d8;
+    }
+
+    .btn-voltar:hover {
+      background: var(--verde);
+      color: var(--branco);
+    }
+
+    /* Área do Aplicativo */
+    .app-container {
+      flex: 1;
+      padding: 30px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .instrucoes {
+      text-align: center;
+      margin-bottom: 20px;
+      max-width: 600px;
+    }
+
+    .instrucoes h2 {
+      font-size: 1.5rem;
+      color: var(--terracota);
+      margin-bottom: 5px;
+    }
+
+    .instrucoes p {
+      color: var(--texto);
+      font-size: 0.95rem;
+    }
+
+    /* Container do Iframe (Responsivo e Fluido) */
+    .iframe-wrapper {
+      width: 100%;
+      height: 75vh; /* Ocupa 75% da altura visível da tela */
+      min-height: 650px;
+      background: var(--branco);
+      border-radius: 8px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Mensagem de carregamento caso a internet do pai esteja lenta */
+    .carregando {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--texto);
+      font-size: 1rem;
+      font-weight: 600;
+      z-index: 0;
+    }
+
+    iframe {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border: none;
+      z-index: 1; /* Fica por cima da mensagem de carregamento quando pronto */
+      display: block;
+    }
+
+    /* Rodapé */
+    footer {
+      background: var(--verde);
+      color: var(--branco);
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.85rem;
+      margin-top: auto;
+    }
+
+    /* Ajustes para Celular */
+    @media (max-width: 768px) {
+      .app-container {
+        padding: 15px 0;
+      }
+      .iframe-wrapper {
+        height: 80vh;
+        border-radius: 4px;
+        min-height: 550px;
+      }
+      .header-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-content">
+      <div class="logo-area">
+        <h1>EENSA</h1>
+        <span>Portal de Serviços Online</span>
+      </div>
+      <a href="index.html" class="btn-voltar">⬅ Voltar ao Site</a>
+    </div>
+  </header>
+
+  <main class="app-container container">
+    
+    <div class="instrucoes">
+      <h2>Cadastro e Rematrícula 2027</h2>
+      <p>Preencha os dados abaixo com atenção. Ao finalizar, clique em enviar e aguarde a confirmação na tela.</p>
+    </div>
+
+    <!-- CAIXA DO FORMULÁRIO -->
+    <div class="iframe-wrapper">
+      <div class="carregando">⏳ Carregando formulário seguro...</div>
+      
+      <iframe 
+        src="https://script.google.com/macros/s/AKfycbwPJeIfZfQ-3YZfHYAW_A2D9Jw-Bo29Ze-A4eEoXntaZBNUywqgZm9Gh8Ab59GdhVORGQ/exec" 
+        title="Formulário de Rematrícula EENSA"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <strong>Escola Estadual Nossa Senhora Aparecida</strong><br>
+      Ensino Fundamental – Anos Finais - Ensino Tempo Integral
+    </div>
+  </footer>
+
+</body>
+</html>
