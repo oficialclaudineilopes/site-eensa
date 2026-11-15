@@ -59,7 +59,7 @@
     .logo {
       font-size: 1rem;
       font-weight: 700;
-      max-width: 270px;
+      max-width: 450px; /* Aumentado para caber o novo nome completo */
     }
 
     nav {
@@ -67,6 +67,10 @@
       gap: 26px;
       font-weight: 600;
       font-size: 0.95rem;
+    }
+
+    nav a {
+      cursor: pointer;
     }
 
     nav a:hover {
@@ -356,11 +360,12 @@
   <header>
     <div class="container header-content">
       <div class="logo">
-        Escola Estadual Nossa Senhora Aparecida
+        PORTAL EENSA - ESCOLA ESTADUAL NOSSA SENHORA APARECIDA
       </div>
 
       <nav>
         <a href="#portal">Portal do Aluno</a>
+        <a onclick="abrirModal('professores')">Portal do Professor</a>
         <a href="#escola">Nossa escola</a>
         <a href="#anos-finais">Anos finais</a>
         <a href="#vida-escolar">Vida escolar</a>
