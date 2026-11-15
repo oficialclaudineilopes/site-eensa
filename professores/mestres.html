@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do Professor - EENSA</title>
+
+  <style>
+    :root {
+      --verde: #183d38;
+      --verde-claro: #e8eee6;
+      --creme: #f5f3ec;
+      --terracota: #b65737;
+      --salmao: #e6a781;
+      --texto: #53635e;
+      --branco: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--verde);
+      background: var(--creme);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: 0 auto;
+    }
+
+    /* Cabeçalho */
+    header {
+      background: var(--branco);
+      padding: 22px 0;
+      border-bottom: 1px solid #e1e1d8;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo-area h1 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--verde);
+      line-height: 1.2;
+    }
+
+    .logo-area span {
+      font-size: 0.85rem;
+      color: var(--texto);
+      font-weight: 400;
+    }
+
+    .btn-voltar {
+      background: var(--verde-claro);
+      color: var(--verde);
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: 1px solid #d3e0d8;
+    }
+
+    .btn-voltar:hover {
+      background: var(--verde);
+      color: var(--branco);
+    }
+
+    /* Área Principal */
+    main {
+      flex: 1;
+      padding: 60px 0;
+    }
+
+    .eyebrow {
+      color: var(--terracota);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 15px;
+    }
+
+    .descricao {
+      color: var(--texto);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-bottom: 40px;
+    }
+
+    /* Grid de Botões de Serviço */
+    .botoes-grid { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 20px; 
+      justify-content: flex-start; 
+    }
+    
+    .btn-ativo {
+      background-color: var(--verde); 
+      color: var(--branco); 
+      width: 240px; 
+      height: 90px;
+      border-radius: 4px; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center;
+      justify-content: center; 
+      text-decoration: none; 
+      font-weight: 700;
+      transition: 0.2s ease;
+      padding: 15px;
+    }
+    
+    .btn-ativo:hover { 
+      background-color: var(--terracota); 
+      transform: translateY(-2px); 
+    }
+    
+    .btn-breve {
+      background-color: var(--verde-claro); 
+      color: var(--texto); 
+      width: 240px; 
+      height: 90px;
+      border-radius: 4px; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center;
+      justify-content: center; 
+      cursor: not-allowed; 
+      border: 1px solid #d3e0d8;
+      padding: 15px;
+    }
+    
+    .icone-texto { 
+      font-size: 1rem; 
+      margin-bottom: 4px; 
+      text-align: center; 
+    }
+    
+    .aviso { 
+      font-size: 0.8rem; 
+      font-weight: 700; 
+      color: var(--terracota); 
+    }
+
+    /* Rodapé */
+    footer {
+      background: var(--verde);
+      color: var(--branco);
+      padding: 32px 0;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-caption {
+      color: #d3e0d8;
+    }
+
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .botoes-grid {
+        justify-content: center;
+      }
+
+      .btn-ativo, .btn-breve {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-content">
+      <div class="logo-area">
+        <h1>PORTAL EENSA</h1>
+        <span>Área Restrita do Professor</span>
+      </div>
+      <a href="index.html" class="btn-voltar">⬅ Sair / Voltar ao Site</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="container">
+      <div class="eyebrow">AMBIENTE CORPORATIVO</div>
+      <h2>Serviços e Ferramentas</h2>
+      <p class="descricao">
+        Bem-vindo à área do professor. Selecione abaixo o serviço desejado para acessar os sistemas internos da escola.
+      </p>
+      
+      <div class="botoes-grid">
+        <!-- Link funcionando para a página de impressão que criamos -->
+        <a href="impressao.html" class="btn-ativo">
+          <div class="icone-texto">🖨️ Solicitação de Impressão</div>
+          <div class="aviso" style="color:var(--creme);">Acessar Sistema</div>
+        </a>
+        
+        <!-- Botões de exemplo para ferramentas futuras -->
+        <div class="btn-breve">
+          <div class="icone-texto">📊 RCO / Lançamento</div>
+          <div class="aviso">(Em breve)</div>
+        </div>
+        
+        <div class="btn-breve">
+          <div class="icone-texto">📅 Planejamento</div>
+          <div class="aviso">(Em breve)</div>
+        </div>
+        
+        <div class="btn-breve">
+          <div class="icone-texto">📁 Material Didático</div>
+          <div class="aviso">(Em breve)</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <strong>Escola Estadual Nossa Senhora Aparecida</strong><br>
+        <span class="footer-caption">Ensino Fundamental – Anos Finais - Ensino Tempo Integral</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
