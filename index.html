@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+<!-- 
+  ARQUIVO: index.html 
+  LOCAL: Página principal do site (www.eensa.com.br)
+  MODIFICADO EM: 15 de Novembro de 2026, às 19:48
+-->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,7 +64,7 @@
     .logo {
       font-size: 1rem;
       font-weight: 700;
-      max-width: 450px; /* Aumentado para caber o novo nome completo */
+      max-width: 450px;
     }
 
     nav {
@@ -181,7 +186,7 @@
       color: var(--texto);
     }
 
-    /* Estilos do Portal de Serviços (Mesclado) */
+    /* Estilos do Portal de Serviços */
     .portal-servicos {
       background: var(--creme);
       padding: 60px 0;
@@ -404,7 +409,7 @@
       </div>
     </section>
 
-    <!-- NOVA SEÇÃO: PORTAL DE SERVIÇOS -->
+    <!-- SEÇÃO: PORTAL DE SERVIÇOS -->
     <section class="portal-servicos" id="portal">
       <div class="container">
         <div class="eyebrow">SERVIÇOS ONLINE</div>
@@ -586,7 +591,7 @@
       var senha = document.getElementById('campoSenha').value;
       
       if(destinoAtual === 'professores' && senha === 'eensa2027') {
-         window.location.href = 'professores.html';
+         window.location.href = 'professores/mestres.html';
       } 
       else if(destinoAtual === 'secretaria' && senha === 'admin2027') {
          window.location.href = 'secretaria.html';
