@@ -3,7 +3,7 @@
 <!-- 
   ARQUIVO: index.html 
   LOCAL: Página principal do site (www.eensa.com.br)
-  MODIFICADO EM: 15 de Novembro de 2026, às 19:48
+  MODIFICADO EM: 16 de Novembro de 2026, às 14:05
 -->
 <head>
   <meta charset="UTF-8">
@@ -115,7 +115,11 @@
       color: var(--texto);
       font-size: 1.1rem;
       max-width: 600px;
-      margin-bottom: 28px;
+      margin-bottom: 15px; /* Reduzido o espaço para caber dois parágrafos bem diagramados */
+    }
+
+    .hero-text-container {
+      margin-bottom: 30px;
     }
 
     .button {
@@ -392,19 +396,25 @@
             Um lugar para aprender, crescer e viver a escola por inteiro.
           </h1>
 
-          <p>
-            Na Escola Estadual Nossa Senhora Aparecida, a vivência em tempo integral transforma cada etapa da aprendizagem em uma oportunidade ampliada para desenvolver conhecimentos, construir vínculos e estruturar o projeto de vida.
-          </p>
+          <div class="hero-text-container">
+            <p>
+              Na Escola Estadual Nossa Senhora Aparecida, a vivência em tempo integral transforma cada etapa da aprendizagem em uma oportunidade ampliada para desenvolver conhecimentos, construir vínculos e estruturar o projeto de vida.
+            </p>
+            <p>
+              Para enriquecer essa jornada, oferecemos as <strong>Aulas Eletivas</strong> — momentos em que o estudante tem a liberdade de escolher temas de seu interesse para explorar novos talentos. Através de práticas como danças circulares, pilates, culinária, pinturas artísticas, xadrez, atividades esportivas e poesias, despertamos na prática o protagonismo juvenil.
+            </p>
+          </div>
 
           <a class="button" href="https://script.google.com/macros/s/AKfycbwPJeIfZfQ-3YZfHYAW_A2D9Jw-Bo29Ze-A4eEoXntaZBNUywqgZm9Gh8Ab59GdhVORGQ/exec" target="_blank">
             2027 - Acessar Pré Cadastro e Rematrícula
           </a>
         </div>
 
+        <!-- AQUI ESTÁ A IMAGEM ATUALIZADA PARA BUSCAR DO GITHUB -->
         <img
           class="hero-image"
-          src="https://images.pexels.com/photos/8471799/pexels-photo-8471799.jpeg?auto=compress&cs=tinysrgb&w=1280"
-          alt="Estudantes participando de uma atividade de aprendizagem em sala de aula"
+          src="foto-eletivas.jpg"
+          alt="Estudantes participando de atividades e aulas eletivas"
         >
       </div>
     </section>
