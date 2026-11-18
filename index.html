@@ -3,7 +3,7 @@
 <!-- 
   ARQUIVO: index.html 
   LOCAL: Página principal do site (www.eensa.com.br)
-  MODIFICADO EM: 16 de Novembro de 2026, às 14:05
+  MODIFICADO EM: 18 de Novembro de 2026, às 07:43
 -->
 <head>
   <meta charset="UTF-8">
@@ -61,10 +61,19 @@
       gap: 30px;
     }
 
+    /* ESTILOS DA LOGO ATUALIZADOS */
     .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px; /* Espaço entre o brasão e o texto */
       font-size: 1rem;
       font-weight: 700;
-      max-width: 450px;
+      max-width: 500px;
+    }
+    
+    .logo img {
+      height: 55px; /* Altura ideal para o cabeçalho */
+      width: auto;
     }
 
     nav {
@@ -103,9 +112,9 @@
     }
 
     h1 {
-      font-size: clamp(2.2rem, 4vw, 3.2rem); /* Tamanho máximo reduzido de 4.5 para 3.2 */
+      font-size: clamp(2.2rem, 4vw, 3.2rem); /* Tamanho ajustado conforme pedido anterior */
       line-height: 1.1;
-      margin-bottom: 19px;
+      margin-bottom: 20px;
     }
 
     .hero p,
@@ -115,7 +124,7 @@
       color: var(--texto);
       font-size: 1.1rem;
       max-width: 600px;
-      margin-bottom: 15px; /* Reduzido o espaço para caber dois parágrafos bem diagramados */
+      margin-bottom: 15px;
     }
 
     .hero-text-container {
@@ -190,7 +199,6 @@
       color: var(--texto);
     }
 
-    /* Estilos do Portal de Serviços */
     .portal-servicos {
       background: var(--creme);
       padding: 60px 0;
@@ -297,7 +305,6 @@
     }
     .btn-restrito:hover { background-color: var(--salmao); color: var(--verde); }
 
-    /* Janela de Senha (Modal) */
     .modal-overlay {
       display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(24,61,56,0.8); justify-content: center; align-items: center; z-index: 9999;
@@ -332,6 +339,11 @@
       nav {
         flex-wrap: wrap;
         gap: 14px;
+      }
+      
+      .logo {
+        flex-direction: column;
+        align-items: flex-start;
       }
 
       .hero-content,
@@ -368,8 +380,10 @@
 
   <header>
     <div class="container header-content">
+      <!-- TAG DO BRASÃO INSERIDA AQUI -->
       <div class="logo">
-        PORTAL EENSA - ESCOLA ESTADUAL NOSSA SENHORA APARECIDA
+        <img src="logo-eensa.png" alt="Brasão EENSA">
+        <span>PORTAL EENSA - ESCOLA ESTADUAL NOSSA SENHORA APARECIDA</span>
       </div>
 
       <nav>
@@ -410,16 +424,14 @@
           </a>
         </div>
 
-        <!-- AQUI ESTÁ A IMAGEM ATUALIZADA PARA BUSCAR DO GITHUB -->
         <img
           class="hero-image"
-          src="foto-eletivas.jpeg"
+          src="foto-eletivas.jpg"
           alt="Estudantes participando de atividades e aulas eletivas"
         >
       </div>
     </section>
 
-    <!-- SEÇÃO: PORTAL DE SERVIÇOS -->
     <section class="portal-servicos" id="portal">
       <div class="container">
         <div class="eyebrow">SERVIÇOS ONLINE</div>
@@ -561,7 +573,6 @@
     </div>
   </footer>
 
-  <!-- Janela de Senha (Modal) -->
   <div id="janelaSenha" class="modal-overlay">
     <div class="modal-box">
       <h3 id="tituloModal">Acesso Restrito</h3>
