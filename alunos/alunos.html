@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal do Aluno - EENSA</title>
+  <style>
+    :root {
+      --verde: #183d38;
+      --creme: #f5f3ec;
+      --terracota: #b65737;
+      --branco: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--creme);
+      color: var(--verde);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    header {
+      background: var(--creme);
+      padding: 15px 5%;
+      border-bottom: 1px solid #e1e1d8;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .logo img {
+      height: 45px;
+      width: auto;
+    }
+
+    .btn-voltar {
+      background: var(--verde);
+      color: var(--branco);
+      padding: 10px 18px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+
+    .btn-voltar:hover {
+      background: var(--terracota);
+    }
+
+    .iframe-container {
+      flex: 1;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="logo-eensa.png" alt="Brasão EENSA">
+      <span>PORTAL DO ALUNO - EENSA</span>
+    </div>
+    <a href="index.html" class="btn-voltar">← Voltar ao Início</a>
+  </header>
+
+  <div class="iframe-container">
+    <iframe 
+      src="https://script.google.com/a/macros/escola.pr.gov.br/s/AKfycbwPJeIfZfQ-3YZfHYAW_A2D9Jw-Bo29Ze-A4eEoXntaZBNUywqgZm9Gh8Ab59GdhVORGQ/exec" 
+      title="Pré-Cadastro e Rematrícula 2027"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+</body>
+</html>
