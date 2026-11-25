@@ -3,10 +3,11 @@
 <!-- 
   ARQUIVO: index.html 
   LOCAL: Página principal do site (www.eensa.com.br)
-  MODIFICADO EM: 25 de Novembro de 2026, às 14:43
+  MODIFICADO EM: 25 de Novembro de 2026, às 14:55
   
   LOG DE EVOLUÇÃO DO PROJETO:
-  - [25/11/2026 14:43] Redirecionados os links de "Portal do Aluno" e "Pré-Cadastro/Rematrícula" para a nova página interna alunos.html; iniciado o registro de log de evolução no cabeçalho.
+  - [25/11/2026 14:55] Atualizados os links de "Portal do Aluno" e "Pré-Cadastro/Rematrícula" para apontar para a subpasta alunos/alunos.html.
+  - [25/11/2026 14:43] Redirecionados os links de "Portal do Aluno" e "Pré-Cadastro/Rematrícula" para a nova página interna; iniciado o registro de log de evolução no cabeçalho.
   - [18/11/2026 07:43] Inserida a logomarca oficial (logo-eensa.png) no cabeçalho, ajustado o tamanho da fonte do título principal e atualizado o texto com a descrição das Aulas Eletivas e imagem (foto-eletivas.jpeg).
   - [16/11/2026 14:05] Adicionado bloco de comentário padrão no topo e expandido o conteúdo de apresentação do Ensino em Tempo Integral.
   - [15/11/2026 19:48] Atualizado o redirecionamento do Portal do Professor para professores/mestres.html.
@@ -118,7 +119,7 @@
     }
 
     h1 {
-      font-size: clamp(2.2rem, 4vw, 3.2rem); /* Tamanho ajustado conforme pedido anterior */
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
       line-height: 1.1;
       margin-bottom: 20px;
     }
@@ -393,7 +394,7 @@
       </div>
 
       <nav>
-        <a href="alunos.html">Portal do Aluno</a>
+        <a href="alunos/alunos.html">Portal do Aluno</a>
         <a onclick="abrirModal('professores')">Portal do Professor</a>
         <a href="#escola">Nossa escola</a>
         <a href="#anos-finais">Anos finais</a>
@@ -425,7 +426,7 @@
             </p>
           </div>
 
-          <a class="button" href="alunos.html">
+          <a class="button" href="alunos/alunos.html">
             2027 - Acessar Pré Cadastro e Rematrícula
           </a>
         </div>
@@ -444,7 +445,7 @@
         <h2>Portal do Aluno e Responsável</h2>
         
         <div class="botoes-grid">
-          <a href="alunos.html" class="btn-ativo">
+          <a href="alunos/alunos.html" class="btn-ativo">
             <div class="icone-texto">📝 Pré Cadastro e Rematrícula</div>
             <div class="aviso" style="color:var(--creme);">Acessar Formulário</div>
           </a>
